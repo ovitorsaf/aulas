@@ -1,12 +1,18 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export const Login = () => {
     
-    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+
+    useEffect(() => {
+        console.log(email);  
+    }, [email]);
+
+    useEffect(() => {
+        console.log(pass);  
+    }, [pass]);
 
     const handleEntrar = () => {
         console.log(email, ' | ', pass);
@@ -30,7 +36,6 @@ export const Login = () => {
             
             </form>
 
-            <h5 onClick={() => navigate(-1)}>Voltar</h5>
         </div>
     );
 }
