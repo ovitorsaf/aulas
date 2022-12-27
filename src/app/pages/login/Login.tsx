@@ -38,20 +38,9 @@ export const Login = () => {
                     type="password"
                     label="Senha"
                     value={pass}
+                    ref={inputPassRef}
                     onChange={newValue => setPass(newValue)}
                 />
-
-                {/*}
-                <label>
-                    <span>Senha</span>
-                    <input 
-                        type="password" 
-                        value={pass} 
-                        ref={inputPassRef}
-                        onChange={e => setPass(e.target.value)}
-                    />
-                </label>
-                */}
 
                 <button type="button" onClick={handleEntrar}>Entrar</button>
             
