@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+import { ButtonLogin } from "./components/ButtonLogin";
 import { InputLogin } from "./components/InputLogin";
 
 export const Login = () => {
@@ -42,7 +44,17 @@ export const Login = () => {
                     onChange={newValue => setPass(newValue)}
                 />
 
-                <button type="button" onClick={handleEntrar}>Entrar</button>
+                {/*
+                <button 
+                    type="button" 
+                    onClick={handleEntrar}>
+                    Entrar
+                </button>
+                */}
+                
+                <ButtonLogin type="button" onClick={handleEntrar}>
+                    Entrar
+                </ButtonLogin>
             
             </form>
         </div>
