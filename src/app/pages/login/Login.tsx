@@ -1,10 +1,16 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UsuarioLogadoContext } from "../../shared/contexts";
 
 import { ButtonLogin } from "./components/ButtonLogin";
 import { InputLogin } from "./components/InputLogin";
 
 export const Login = () => {
     
+    const {nomeDoUsuario} = useContext(UsuarioLogadoContext);
+    
+    const navigator = useNavigate();
+
     const inputPassRef = useRef<HTMLInputElement>(null);
     
     const [email, setEmail] = useState('');
@@ -27,6 +33,8 @@ export const Login = () => {
         <div>
             <form>
                 
+                <h3>Usuário: {nomeDoUsuario}</h3>
+
                 <p>Quantidade de caracteres no email: {emailLength}</p>
 
                 <InputLogin
@@ -43,18 +51,12 @@ export const Login = () => {
                     ref={inputPassRef}
                     onChange={newValue => setPass(newValue)}
                 />
-
-                {/*
-                <button 
-                    type="button" 
-                    onClick={handleEntrar}>
-                    Entrar
-                </button>
-                */}
                 
                 <ButtonLogin type="button" onClick={handleEntrar}>
                     Entrar
                 </ButtonLogin>
+
+                <h5 onClick={() => navigator(-1)}>Voltar</h5>
             
             </form>
         </div>
