@@ -7,7 +7,7 @@ export const Dashboard = () => {
     const counterRef = useRef({ counter: 0 });
 
     const {nomeDoUsuario, logout} = useUsuarioLogado();
-
+    
     return(
         <div>
             
