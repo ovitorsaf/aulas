@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ApiException } from '../../shared/services/api/ApiException';
 import { ITarefa, TarefasService } from '../../shared/services/api/tarefas/TarefasService';
+import { Link } from 'react-router-dom';
+
 
 export const Dashboard = () => {
 
@@ -83,6 +85,7 @@ export const Dashboard = () => {
         });        
     }, []); 
 
+
     return(
         <div>
             
@@ -110,8 +113,13 @@ export const Dashboard = () => {
                         </li>
                 })}
             </ul>
+                
+            <br/>
+            
+            <button>
+                <Link to='/entrar'>Login</Link>
+            </button>
 
         </div>
     );
-
 }
