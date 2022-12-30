@@ -40,8 +40,34 @@ export const Dashboard = () => {
               }
             });
         }
-      }, [lista])
+      }, [lista]);
 
+    const handleToggleComplete = useCallback((id: number) => {
+        
+        const tarefaToUpdate = lista.find((tarefa) => tarefa.id === id);
+
+        if (!tarefaToUpdate) return;
+        
+        TarefasService.updateById(id, {
+            ...tarefaToUpdate,
+            isCompleted: !tarefaToUpdate.isCompleted
+        })
+        .then((result) => {
+            if (result instanceof ApiException) {
+                alert(result.message);
+              } else {
+                /* Esta com erro porém ainda executa a criação no banco... Verificando no Discord o que pode ser */
+                setLista((oldLista) => {
+                    return oldLista.map(oldListItem => {
+                        if (oldListItem.id === id) return result;
+                        return oldListItem;
+                    });
+                });
+              }
+        });
+        
+        
+    }, [lista]);  
 
     return(
         <div>
@@ -62,19 +88,7 @@ export const Dashboard = () => {
                             <input 
                                 type="checkbox"
                                 checked={listItem.isCompleted}
-                                onChange={() => {
-                                    setLista((oldLista) => {
-                                        return oldLista.map(oldListItem => {
-                                            const newIsCompleted = oldListItem.title === listItem.title 
-                                            ? !oldListItem.isCompleted
-                                            : oldListItem.isCompleted;
-                                            return {
-                                                ...oldListItem,
-                                                isCompleted: newIsCompleted
-                                            }
-                                        });
-                                    });
-                                }}
+                                onChange={() => handleToggleComplete(listItem.id)}
                             />
                             {listItem.title}
                         </li>
