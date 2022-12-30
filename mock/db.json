@@ -13,22 +13,12 @@
     {
       "id": 3,
       "title": "Tarefa 03",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
-      "title": "Tarega 04",
+      "title": "Tarefa 04",
       "isCompleted": false,
-      "id": 4
-    },
-    {
-      "title": "Tarefa 05",
-      "isCompleted": false,
-      "id": 5
-    },
-    {
-      "title": "Tarefa 06",
-      "isCompleted": true,
-      "id": 6
+      "id": 7
     }
   ]
 }
