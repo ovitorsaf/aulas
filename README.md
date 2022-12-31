@@ -19,8 +19,6 @@ Inicialmente começamos aprendendo sobre estrutura de pastas, componentes, rotas
 customizados, elementos children, passando informações com useContext, hooks customizados, funções no contexto,
 listas, acesso ao backend, crud com api.
 
-
 ## Como rodar em localhost?
 
 Basta dar os comandos `yarn start` para startar a aplicação e `yarn mock` para startar o backend
-
